@@ -1,0 +1,22 @@
+store and retrieve string msg stores in plain json file
+1. route to list all msgs saved -GET localhost:3000/messages
+2. route to creata  msg -POST localhost:3000/messages {"content":"hi there"}
+3. route to fetch using msg id -GET localhost:3000/messages/:id
+
+
+GET ==> Controller->Service->Repository
+
+POST ==> Pipe-> Controller->Service->Repository
+
+GET ==> Controller->Service->Repository
+
+
+Server 
+
+MessagesModule Contents
+->Pipe{Validate the data contained in the request}
+->MessagesController {Route request to particular function}
+->MessagesService {Run Some business logic}
+->MessageRepository {Access a databse}
+
+ 
