@@ -11,4 +11,4 @@ Content-Type: application/json
 }
 
 ###get a msg with ID
-GET http://localhost:3009/messages/101
+GET http://localhost:3009/messages/10
