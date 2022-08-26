@@ -1,4 +1,4 @@
-import { Controller,Get,Post,Body,Param,NotFoundException, Put, Patch } from '@nestjs/common';
+import { Controller,Get,Post,Body,Param,NotFoundException, Put, Patch, Delete } from '@nestjs/common';
 import { createMessageDto } from './dto/create-message.dto';
 import { updateMessageDto } from './dto/update-message.dto';
 import { MessagesService } from './messages.services';
@@ -42,5 +42,12 @@ export class MessagesController {
 		console.log("in controller - body",body);
 		return this.messagesService.updateMsg(id, body.content)
 	}
+
+	//delete a specific id
+	@Delete('/:id')
+	async deleteMsg(@Param('id') id:string){
+		return this.messagesService.deleteMsg(id)
+	}
+
 
 }

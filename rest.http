@@ -7,7 +7,7 @@ POST http://localhost:3009/messages
 Content-Type: application/json
 
 {
-	"content":"Message sending"
+	"content":"NEW MESSAGE"
 }
 
 ###get a msg with ID
@@ -21,3 +21,7 @@ Content-Type: application/json
 {
 	"content":"Message sending - updated "
 }
+
+
+###delete a message with ID
+DELETE  http://localhost:3009/messages/981

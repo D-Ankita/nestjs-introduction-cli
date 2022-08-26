@@ -22,4 +22,7 @@ export class MessagesService{
 		console.log("in services - updatemsg");
 		return this.messagesRepo.updateMsg(id,content)
 	}
+	deleteMsg(id:string){
+		return this.messagesRepo.deleteMsg(id)
+	}
 }

@@ -39,6 +39,9 @@ let MessagesController = class MessagesController {
         console.log("in controller - body", body);
         return this.messagesService.updateMsg(id, body.content);
     }
+    async deleteMsg(id) {
+        return this.messagesService.deleteMsg(id);
+    }
 };
 __decorate([
     (0, common_1.Get)(),
@@ -68,6 +71,13 @@ __decorate([
     __metadata("design:paramtypes", [String, update_message_dto_1.updateMessageDto]),
     __metadata("design:returntype", Promise)
 ], MessagesController.prototype, "updateMsg", null);
+__decorate([
+    (0, common_1.Delete)('/:id'),
+    __param(0, (0, common_1.Param)('id')),
+    __metadata("design:type", Function),
+    __metadata("design:paramtypes", [String]),
+    __metadata("design:returntype", Promise)
+], MessagesController.prototype, "deleteMsg", null);
 MessagesController = __decorate([
     (0, common_1.Controller)('messages'),
     __metadata("design:paramtypes", [messages_services_1.MessagesService])

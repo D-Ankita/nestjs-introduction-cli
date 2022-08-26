@@ -8,4 +8,5 @@ export declare class MessagesController {
     createMessage(body: createMessageDto): Promise<void>;
     getMessage(id: string): Promise<any>;
     updateMsg(id: string, body: updateMessageDto): Promise<void>;
+    deleteMsg(id: string): Promise<void>;
 }

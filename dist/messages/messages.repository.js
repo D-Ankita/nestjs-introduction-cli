@@ -36,6 +36,15 @@ let MessagesRepository = class MessagesRepository {
         console.log("after update", messages[id]);
         await (0, promises_1.writeFile)('messages.json', JSON.stringify(messages));
     }
+    async deleteMsg(id) {
+        console.log("in delete Msg");
+        const contents = await (0, promises_1.readFile)('messages.json', 'utf-8');
+        const messages = JSON.parse(contents);
+        console.log(messages[id]);
+        delete messages[id];
+        console.log("after delete", messages[id]);
+        await (0, promises_1.writeFile)('messages.json', JSON.stringify(messages));
+    }
 };
 MessagesRepository = __decorate([
     (0, common_1.Injectable)()

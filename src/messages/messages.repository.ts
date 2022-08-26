@@ -1,5 +1,5 @@
 import { readFile, writeFile } from "fs/promises";
-import { Injectable } from "@nestjs/common";
+import { Delete, Injectable } from "@nestjs/common";
 @Injectable()
 export class MessagesRepository{
 	async findOne(id:string){
@@ -41,6 +41,22 @@ export class MessagesRepository{
 		//write back to the file
 		await writeFile('messages.json',JSON.stringify(messages))
 		// return messages
+	}
+
+	async deleteMsg(id:string){
+		console.log("in delete Msg");
+		//read the existing file
+		const contents = await readFile('messages.json', 'utf-8');
+		//convert to json object 
+		const messages = JSON.parse(contents)
+		//find the mesage associated with the id
+		console.log(messages[id])
+		//delete the object
+		delete messages[id]
+		console.log("after delete", messages[id]);
+		//write back to the file
+		await writeFile('messages.json', JSON.stringify(messages))
+		
 	}
 
 
