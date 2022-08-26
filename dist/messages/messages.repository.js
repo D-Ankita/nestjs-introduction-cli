@@ -27,6 +27,15 @@ let MessagesRepository = class MessagesRepository {
         messages[id] = { id, content };
         await (0, promises_1.writeFile)('messages.json', JSON.stringify(messages));
     }
+    async updateMsg(id, content) {
+        console.log("in repo - updatemsg");
+        const contents = await (0, promises_1.readFile)('messages.json', 'utf-8');
+        const messages = JSON.parse(contents);
+        console.log(messages[id]);
+        messages[id]["content"] = content;
+        console.log("after update", messages[id]);
+        await (0, promises_1.writeFile)('messages.json', JSON.stringify(messages));
+    }
 };
 MessagesRepository = __decorate([
     (0, common_1.Injectable)()

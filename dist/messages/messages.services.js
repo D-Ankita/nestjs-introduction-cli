@@ -25,6 +25,10 @@ let MessagesService = class MessagesService {
     create(content) {
         return this.messagesRepo.create(content);
     }
+    updateMsg(id, content) {
+        console.log("in services - updatemsg");
+        return this.messagesRepo.updateMsg(id, content);
+    }
 };
 MessagesService = __decorate([
     (0, common_1.Injectable)(),

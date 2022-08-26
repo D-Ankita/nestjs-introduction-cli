@@ -1,5 +1,6 @@
-import { Controller,Get,Post,Body,Param,NotFoundException } from '@nestjs/common';
+import { Controller,Get,Post,Body,Param,NotFoundException, Put, Patch } from '@nestjs/common';
 import { createMessageDto } from './dto/create-message.dto';
+import { updateMessageDto } from './dto/update-message.dto';
 import { MessagesService } from './messages.services';
 @Controller('messages')
 export class MessagesController {
@@ -23,6 +24,8 @@ export class MessagesController {
 	//get a msg with ID
 	@Get('/:id')
 	async getMessage(@Param('id') id:string){
+		console.log(id);
+		
 		const message = await this.messagesService.findOne(id);
 		
 		if(!message){
@@ -31,4 +34,13 @@ export class MessagesController {
 		return message;
 
 	}
+
+	//edit the task with id
+	@Patch('/:id')
+	async updateMsg(@Param('id') id:string, @Body() body:updateMessageDto ){
+		
+		console.log("in controller - body",body);
+		return this.messagesService.updateMsg(id, body.content)
+	}
+
 }

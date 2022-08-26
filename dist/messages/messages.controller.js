@@ -15,6 +15,7 @@ Object.defineProperty(exports, "__esModule", { value: true });
 exports.MessagesController = void 0;
 const common_1 = require("@nestjs/common");
 const create_message_dto_1 = require("./dto/create-message.dto");
+const update_message_dto_1 = require("./dto/update-message.dto");
 const messages_services_1 = require("./messages.services");
 let MessagesController = class MessagesController {
     constructor(messagesService) {
@@ -27,11 +28,16 @@ let MessagesController = class MessagesController {
         return this.messagesService.create(body.content);
     }
     async getMessage(id) {
+        console.log(id);
         const message = await this.messagesService.findOne(id);
         if (!message) {
             throw new common_1.NotFoundException('Message not Found');
         }
         return message;
+    }
+    async updateMsg(id, body) {
+        console.log("in controller - body", body);
+        return this.messagesService.updateMsg(id, body.content);
     }
 };
 __decorate([
@@ -54,6 +60,14 @@ __decorate([
     __metadata("design:paramtypes", [String]),
     __metadata("design:returntype", Promise)
 ], MessagesController.prototype, "getMessage", null);
+__decorate([
+    (0, common_1.Patch)('/:id'),
+    __param(0, (0, common_1.Param)('id')),
+    __param(1, (0, common_1.Body)()),
+    __metadata("design:type", Function),
+    __metadata("design:paramtypes", [String, update_message_dto_1.updateMessageDto]),
+    __metadata("design:returntype", Promise)
+], MessagesController.prototype, "updateMsg", null);
 MessagesController = __decorate([
     (0, common_1.Controller)('messages'),
     __metadata("design:paramtypes", [messages_services_1.MessagesService])

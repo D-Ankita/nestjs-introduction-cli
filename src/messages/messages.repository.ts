@@ -27,5 +27,21 @@ export class MessagesRepository{
 		await writeFile('messages.json',JSON.stringify(messages));
 	}
 
+	async updateMsg(id:string, content:string){
+		console.log("in repo - updatemsg");
+		//read the file
+		const contents = await readFile('messages.json','utf-8');
+		//convert to json
+		const messages = JSON.parse(contents)
+		// find the data associated with id 
+		console.log(messages[id]);
+		//update the contents using the incoming content
+		messages[id]["content"] = content
+		console.log("after update",messages[id]);
+		//write back to the file
+		await writeFile('messages.json',JSON.stringify(messages))
+		// return messages
+	}
+
 
 }

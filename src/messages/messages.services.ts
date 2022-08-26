@@ -17,4 +17,9 @@ export class MessagesService{
 	create(content:string){
 		return this.messagesRepo.create(content);
 	}
+
+	updateMsg(id:string, content:string){
+		console.log("in services - updatemsg");
+		return this.messagesRepo.updateMsg(id,content)
+	}
 }
