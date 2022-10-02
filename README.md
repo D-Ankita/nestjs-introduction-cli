@@ -1,3 +1,6 @@
+<img width="509" alt="Untitled_design-removebg-selfstudy" src="https://user-images.githubusercontent.com/46243069/193447406-f14bf25f-1ece-4329-a321-c0ac2176db19.png">
+<hr>
+
 <p align="center">
   <a href="http://nestjs.com/" target="blank"><img src="https://nestjs.com/img/logo-small.svg" width="200" alt="Nest Logo" /></a>
 </p>
@@ -71,3 +74,8 @@ Nest is an MIT-licensed open source project. It can grow thanks to the sponsors 
 ## License
 
 Nest is [MIT licensed](LICENSE).
+
+
+
+
+
